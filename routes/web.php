@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\testcontroller;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,4 +37,17 @@ Route::get('/test4/{name}/{id?}' , function($name , $id = 12){
     return "name : $name \n id : $id"; 
 })->name('rule-parameter');
 
+// middleware rroute 
+Route::get('/role',[
+
+    'middleware'=>'test:editor' ,
+    'uses'=> 'App\Http\Controllers\testcontroller@index',
+
+]);
+Route::get('/role','App\Http\Controllers\testcontroller@index')->middleware('test:editor');
+
+Route::get('/terminal',[
+ 'middleware'=> 'terminal',
+ 'uses' => 'App\Http\Controllers\abccontroller@index',
+]);
 

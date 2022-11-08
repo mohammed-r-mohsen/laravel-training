@@ -6,6 +6,7 @@ use App\Http\Controllers\userController;
 use App\Http\Controllers\RequestCntroller;
 use App\Http\Controllers\RetrevingCntroller;
 use App\Http\Controllers\cookieController;
+use Illuminate\Http\Response;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -72,4 +73,21 @@ Route::get('/register',function(){
 // cookie 
 
 Route::get('/cookie/set' , [cookieController::class , 'setcookie']);
+
 Route::get('/cookie/get' , [cookieController::class , 'getcookie']);
+
+// respone 
+Route::get('/header',function(){
+    return response('hello',200)->header('content-type','test/html');
+});
+
+Route::get('/headercookie',function(){
+    return response('hello',200)
+    ->header('content-type','test/html')
+    ->withCookie('respone','test cookie respone ')
+    ;
+});
+
+Route::get('/json',function(){
+    return response()->json(['name'=>'mohammed' , 'age'=>15 , 'work'=>'laravel devloper']);
+});

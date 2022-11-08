@@ -8,12 +8,14 @@ class cookieController extends Controller
 {
     public function setcookie(Request $requst)
     {
+        
         $time = 1 ; 
         $cookie = [
             'name' => 'test',
             'value' => 'test cookie',
             'expires' => $time
         ];
+
         $respone = new Response('hello world ');
          $respone->withCookie(cookie($cookie['name'] , $cookie['value'] , $cookie['expires']));
         return $respone;

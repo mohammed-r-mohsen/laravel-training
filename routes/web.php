@@ -91,3 +91,13 @@ Route::get('/headercookie',function(){
 Route::get('/json',function(){
     return response()->json(['name'=>'mohammed' , 'age'=>15 , 'work'=>'laravel devloper']);
 });
+
+// views 
+
+Route::any('/view1', function () {
+    return view('views',['name'=>'mohammed mohsen']);
+});
+
+Route::any('/view2', function () {
+    return view('views2', ['name' => 'mohammed mohsen']);
+});

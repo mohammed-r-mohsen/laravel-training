@@ -6,6 +6,7 @@ use App\Http\Controllers\userController;
 use App\Http\Controllers\RequestCntroller;
 use App\Http\Controllers\RetrevingCntroller;
 use App\Http\Controllers\cookieController;
+use App\Http\Controllers\RedirectContrller;
 use Illuminate\Http\Response;
 /*
 |--------------------------------------------------------------------------
@@ -100,4 +101,20 @@ Route::any('/view1', function () {
 
 Route::any('/view2', function () {
     return view('views2', ['name' => 'mohammed mohsen']);
+});
+
+// redirection 
+// redirect to view 
+Route::get('/redirect', function () {
+    return redirect()->to('/view1');
+});
+
+#redirect by route name 
+
+Route::get('/redirect2', function () {
+    return redirect()->route('view2');
+});
+
+Route::get('/redirect',function(){
+    return redirect()->action([RedirectContrller::class , 'redirectPage']);
 });

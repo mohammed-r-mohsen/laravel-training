@@ -3,6 +3,8 @@
 use App\Http\Controllers\testcontroller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\userController;
+use App\Http\Controllers\RequestCntroller;
+use App\Http\Controllers\RetrevingCntroller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -57,4 +59,12 @@ Route::get('/terminal',[
 Route::get('/usercontroller' , [userController::class , 'showpath'])->middleware('firstMiddleware');
 
 //request 
+
+Route::get('/foo/bar',[RequestCntroller::class , 'index']);
+
+Route::get('/register/submit',[RetrevingCntroller::class , 'postRegister'])->name('registersubmit');
+
+Route::get('/register',function(){
+    return view('test');
+});
 

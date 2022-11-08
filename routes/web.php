@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\testcontroller;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\userController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,4 +51,10 @@ Route::get('/terminal',[
  'middleware'=> 'terminal',
  'uses' => 'App\Http\Controllers\abccontroller@index',
 ]);
+
+// controller 
+
+Route::get('/usercontroller' , [userController::class , 'showpath'])->middleware('firstMiddleware');
+
+//request 
 

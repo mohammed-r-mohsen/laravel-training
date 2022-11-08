@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\RequestCntroller;
 use App\Http\Controllers\RetrevingCntroller;
+use App\Http\Controllers\cookieController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -68,3 +69,7 @@ Route::get('/register',function(){
     return view('test');
 });
 
+// cookie 
+
+Route::get('/cookie/set' , [cookieController::class , 'setcookie']);
+Route::get('/cookie/get' , [cookieController::class , 'getcookie']);

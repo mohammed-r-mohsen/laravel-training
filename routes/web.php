@@ -8,6 +8,8 @@ use App\Http\Controllers\RetrevingCntroller;
 use App\Http\Controllers\cookieController;
 use App\Http\Controllers\RedirectContrller;
 use Illuminate\Http\Response;
+use App\Http\Controllers\LoclizationControler;
+use App\Http\Controllers\SessionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,7 +22,7 @@ use Illuminate\Http\Response;
 */
 
 // basic route 
-Route::get('/', function () {
+Route::get('/deafult', function () {
     return view('welcome');
 })->name('deafult');
 
@@ -118,3 +120,17 @@ Route::get('/redirect2', function () {
 Route::get('/redirect',function(){
     return redirect()->action([RedirectContrller::class , 'redirectPage']);
 });
+
+
+// localization 
+Route::get('/', function (){
+    return view('localization');
+});
+
+Route::get('/local/{lang}' , [LoclizationControler::class , 'SetLang']);
+
+// Session 
+ 
+Route::get('session/get', [SessionController::class , 'acessSesion']);
+Route::get('session/set', [SessionController::class , 'StoreSession']);
+Route::get('session/remove',[SessionController::class , 'removeSession']);

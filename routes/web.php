@@ -11,7 +11,7 @@ use Illuminate\Http\Response;
 use App\Http\Controllers\LoclizationControler;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\ValidateController;
-
+use App\Http\Controllers\UplodeFileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -141,3 +141,8 @@ Route::get('session/remove',[SessionController::class , 'removeSession']);
 
 Route::get('/valiate',[ValidateController::class , 'index']);
 Route::post('/valiateForm',[ValidateController::class , 'ValidateForm'])->name('validate');
+
+//uplode file rouote 
+
+Route::get('/upload',[UplodeFileController::class, 'index']);
+Route::post('/uploadForm',[UplodeFileController::class, 'UploadForm'])->name('upload');

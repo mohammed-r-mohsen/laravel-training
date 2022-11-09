@@ -12,6 +12,7 @@ use App\Http\Controllers\LoclizationControler;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\ValidateController;
 use App\Http\Controllers\UplodeFileController;
+use App\Http\Controllers\MailController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -146,3 +147,9 @@ Route::post('/valiateForm',[ValidateController::class , 'ValidateForm'])->name('
 
 Route::get('/upload',[UplodeFileController::class, 'index']);
 Route::post('/uploadForm',[UplodeFileController::class, 'UploadForm'])->name('upload');
+
+// mail 
+
+Route::get('/sendbasicemail',[MailController::class, 'basic_email']);
+
+Route::get('/sendattachmentemail',[MailController::class, 'attachment_email']);

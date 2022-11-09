@@ -10,6 +10,8 @@ use App\Http\Controllers\RedirectContrller;
 use Illuminate\Http\Response;
 use App\Http\Controllers\LoclizationControler;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\ValidateController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -134,3 +136,8 @@ Route::get('/local/{lang}' , [LoclizationControler::class , 'SetLang']);
 Route::get('session/get', [SessionController::class , 'acessSesion']);
 Route::get('session/set', [SessionController::class , 'StoreSession']);
 Route::get('session/remove',[SessionController::class , 'removeSession']);
+
+// valiation route 
+
+Route::get('/valiate',[ValidateController::class , 'index']);
+Route::post('/valiateForm',[ValidateController::class , 'ValidateForm'])->name('validate');
